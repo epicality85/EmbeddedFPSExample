@@ -53,39 +53,28 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Server\UnityServer.cs" />
-     <Compile Include="Assets\DarkRift\2 DragDemo\DragObject.cs" />
      <Compile Include="Assets\Scripts\PlayerInterpolation.cs" />
      <Compile Include="Assets\Scripts\ConnectionManager.cs" />
      <Compile Include="Assets\DarkRift\1 ChatDemo\ChatDemo.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Client\SerializableObjectCacheSettings.cs" />
      <Compile Include="Assets\Scripts\shared\NetworkingData.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\BlockCharacterManager.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Client\UnityClient.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\BlockCharacter.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\BlockNetworkCharacter.cs" />
      <Compile Include="Assets\Scripts\LoginManager.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\BlockTags.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\BlockPlayerSpawner.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Server\UnityConsoleWriter.cs" />
      <Compile Include="Assets\Scripts\shared\PlayerLogic.cs" />
      <Compile Include="Assets\Scripts\shared\Buffer.cs" />
      <Compile Include="Assets\Scripts\ClientPlayer.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\BlockWorld.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\MouseLook.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\LobbyManager.cs" />
      <Compile Include="Assets\Scripts\RoomListObject.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Server\XmlUnityServer.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Server\UnityServerHelper.cs" />
-     <Compile Include="Assets\DarkRift\3 BlockDemo\FirstPersonController.cs" />
-     <None Include="Assets\DarkRift\3 BlockDemo\ReadMe.txt" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\Server\DarkRift.Server.xml" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\DarkRift.xml" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\Client\DarkRift.Client.xml" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\Server\ExampleConfiguration.xml" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\link.xml" />
      <None Include="Assets\DarkRift\ReadMe.txt" />
-     <None Include="Assets\DarkRift\2 DragDemo\ReadMe.txt" />
      <None Include="Assets\DarkRift\1 ChatDemo\ReadMe.txt" />
  <Reference Include="UnityEngine">
  <HintPath>C:/MMORPG/2020.3.26f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>

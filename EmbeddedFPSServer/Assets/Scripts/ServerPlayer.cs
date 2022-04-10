@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerLogic))]
 public class ServerPlayer : MonoBehaviour
 {
-    private ClientConnection clientConnection;
+    private ClientConnection _clientConnection;
     private Room room;
 
     private PlayerStateData currentPlayerStateData;
@@ -31,10 +31,10 @@ public class ServerPlayer : MonoBehaviour
 
     public void Initialize(Vector3 position, ClientConnection clientConnection)
     {
-        this.clientConnection = clientConnection;
+        _clientConnection = clientConnection;
         room = clientConnection.Room;
         Client = clientConnection.Client;
-        this.clientConnection.Player = this;
+        _clientConnection.Player = this;
         
         currentPlayerStateData = new PlayerStateData(Client.ID,0, position, Quaternion.identity);
         InputTick = room.ServerTick;
@@ -111,7 +111,7 @@ public class ServerPlayer : MonoBehaviour
 
     public PlayerSpawnData GetPlayerSpawnData()
     {
-        return new PlayerSpawnData(Client.ID, clientConnection.Name, transform.localPosition);
+        return new PlayerSpawnData(Client.ID, _clientConnection.Name, transform.localPosition);
     }
 
 }

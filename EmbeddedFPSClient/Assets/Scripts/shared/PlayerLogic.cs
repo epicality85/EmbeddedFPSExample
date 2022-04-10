@@ -1,5 +1,21 @@
 ﻿using UnityEngine;
 
+public enum MovementState
+{
+    IDLE,
+    MOVE_WALK,
+    MOVE_BOOST,
+    MOVE_CROUCH
+}
+
+public enum VehicleState
+{
+    ON_FOOT,
+    IN_SHIP,
+    IN_CAR,
+    IN_EVA
+}
+
 [RequireComponent(typeof(CharacterController))]
 public class PlayerLogic : MonoBehaviour
 {
@@ -13,11 +29,13 @@ public class PlayerLogic : MonoBehaviour
     [SerializeField]
     private float jumpStrength;
 
-    public CharacterController CharacterController { get; private set; }
+    public CharacterController CharacterController;
 
-    void Awake()
+    public MovementState MovementState = MovementState.IDLE;
+
+    private void Awake()
     {
-        CharacterController = GetComponent<CharacterController>();
+        //CharacterController = GetComponent<CharacterController>();
     }
 
     public PlayerStateData GetNextFrameData(PlayerInputData input, PlayerStateData currentStateData)

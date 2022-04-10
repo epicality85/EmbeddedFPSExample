@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public uint ClientTick { get; private set; }
     public uint LastReceivedServerTick { get; private set; }
 
-    void Awake()
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -28,13 +28,13 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(this);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         Instance = null;
         ConnectionManager.Instance.Client.MessageReceived -= OnMessage;
     }
 
-    void Start()
+    private void Start()
     {
         ConnectionManager.Instance.Client.MessageReceived += OnMessage;
         using (Message message = Message.CreateEmpty((ushort)Tags.GameJoinRequest))
@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnMessage(object sender, MessageReceivedEventArgs e)
+    private void OnMessage(object sender, MessageReceivedEventArgs e)
     {
         using (Message message = e.GetMessage())
         {
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnGameJoinAccept(GameStartData gameStartData)
+    private void OnGameJoinAccept(GameStartData gameStartData)
     {
         LastReceivedServerTick = gameStartData.OnJoinServerTick;
         ClientTick = gameStartData.OnJoinServerTick;
@@ -69,12 +69,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void OnGameUpdate(GameUpdateData gameUpdateData)
+    private void OnGameUpdate(GameUpdateData gameUpdateData)
     {
         gameUpdateDataBuffer.Add(gameUpdateData);
     }
 
-    void SpawnPlayer(PlayerSpawnData playerSpawnData)
+    private void SpawnPlayer(PlayerSpawnData playerSpawnData)
     {
         GameObject go = Instantiate(PlayerPrefab);
         ClientPlayer player = go.GetComponent<ClientPlayer>();
@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         players.Add(playerSpawnData.Id, player);
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         ClientTick++;
         GameUpdateData[] receivedGameUpdateData = gameUpdateDataBuffer.Get();
@@ -92,7 +92,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void UpdateClientGameState(GameUpdateData gameUpdateData)
+    private void UpdateClientGameState(GameUpdateData gameUpdateData)
     {
         LastReceivedServerTick = gameUpdateData.Frame;
         foreach (PlayerSpawnData data in gameUpdateData.SpawnDataData)

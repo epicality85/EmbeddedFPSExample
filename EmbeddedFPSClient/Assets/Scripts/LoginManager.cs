@@ -15,7 +15,7 @@ public class LoginManager : MonoBehaviour
     [SerializeField] 
     private Button submitLoginButton;
 
-    void Start()
+    private void Start()
     {
         ConnectionManager.Instance.OnConnected += StartLoginProcess;
         submitLoginButton.onClick.AddListener(OnSubmitLogin);
@@ -24,7 +24,7 @@ public class LoginManager : MonoBehaviour
         loginWindow.SetActive(false);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         ConnectionManager.Instance.OnConnected -= StartLoginProcess;
         ConnectionManager.Instance.Client.MessageReceived -= OnMessage;

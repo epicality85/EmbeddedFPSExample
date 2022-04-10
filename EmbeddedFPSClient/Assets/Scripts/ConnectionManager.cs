@@ -27,7 +27,8 @@ public class ConnectionManager : MonoBehaviour
 
     public delegate void OnConnectedDelegate();
     public event OnConnectedDelegate OnConnected;
-    void Awake()
+
+    private void Awake()
     {
         if (Instance != null)
         {
@@ -39,15 +40,15 @@ public class ConnectionManager : MonoBehaviour
         Client = GetComponent<UnityClient>();
     }
 
-    void Start()
+    private void Start()
     {
 
-        Client.ConnectInBackground(IPAddress.Parse(ipAdress), port, IPVersion.IPv4, ConnectCallback);
+        Client.ConnectInBackground(IPAddress.Parse(ipAdress), port, false, ConnectCallback);
     }
 
     private void ConnectCallback(Exception exception)
     {
-        if (Client.Connected)
+        if (Client.ConnectionState == ConnectionState.Connected)
         {
             OnConnected?.Invoke();
         }

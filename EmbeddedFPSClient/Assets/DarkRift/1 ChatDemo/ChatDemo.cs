@@ -8,25 +8,25 @@ public class ChatDemo : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("The client to communicate with the server via.")]
-    UnityClient client;
+    private UnityClient client;
 
     [SerializeField]
     [Tooltip("The InputField the user can type in.")]
-    InputField input;
+    private InputField input;
 
     [SerializeField]
     [Tooltip("The transform to place new messages in.")]
-    Transform chatWindow;
+    private Transform chatWindow;
 
     [SerializeField]
     [Tooltip("The scrollrect for the chat window (if present).")]
-    ScrollRect scrollRect;
+    private ScrollRect scrollRect;
 
     [SerializeField]
     [Tooltip("The message prefab where messages will be added.")]
-    GameObject messagePrefab;
+    private GameObject messagePrefab;
 
-    void Awake()
+    private void Awake()
     {
         //Check we have a client to send/receive from
         if (client == null)
@@ -51,7 +51,7 @@ public class ChatDemo : MonoBehaviour
         }
     }
 
-    void Client_Disconnected(object sender, DisconnectedEventArgs e)
+    private void Client_Disconnected(object sender, DisconnectedEventArgs e)
     {
         //If we've disconnected add a message to say whether it was us or the server that triggered the 
         //disconnection
@@ -61,7 +61,7 @@ public class ChatDemo : MonoBehaviour
             AddMessage("You were disconnected from the server.");
     }
 
-    void AddMessage(string message)
+    private void AddMessage(string message)
     {
         //Now we need to create a new UI object to put the message in so instantiate our prefab and add it 
         //as a child to the chat window

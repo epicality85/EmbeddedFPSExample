@@ -311,11 +311,26 @@ public struct PlayerInputData : IDarkRiftSerializable
     public Quaternion LookDirection;
     public uint Time;
 
-    public PlayerInputData(bool[] keyInputs, Quaternion lookdirection, uint time)
+    public Vector2 MoveDirection;
+    public bool JumpButtonPressed;
+    public bool LeftMouseButton;
+    public bool RightMouseButton;
+    public bool RotateRight;
+    public bool RotateLeft;
+
+    public PlayerInputData(bool[] keyinputs, Quaternion lookDirection, uint time, Vector2 moveDirection,
+        bool jumpButtonPressed, bool leftMouseButton, bool rightMouseButton, bool rotateRight, bool rotateLeft)
     {
-        Keyinputs = keyInputs;
-        LookDirection = lookdirection;
+        Keyinputs = keyinputs;
+        LookDirection = lookDirection;
         Time = time;
+        
+        MoveDirection = moveDirection;
+        JumpButtonPressed = jumpButtonPressed;
+        LeftMouseButton = leftMouseButton;
+        RightMouseButton = rightMouseButton;
+        RotateRight = rotateRight;
+        RotateLeft = rotateLeft;
     }
 
     public void Deserialize(DeserializeEvent e)

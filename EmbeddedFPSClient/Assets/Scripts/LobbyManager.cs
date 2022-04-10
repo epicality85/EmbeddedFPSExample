@@ -13,13 +13,13 @@ public class LobbyManager : MonoBehaviour
     [SerializeField]
     private GameObject roomListPrefab;
 
-    void Start()
+    private void Start()
     {
         ConnectionManager.Instance.Client.MessageReceived += OnMessage;
         RefreshRooms(ConnectionManager.Instance.LobbyInfoData);
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         ConnectionManager.Instance.Client.MessageReceived -= OnMessage;
     }

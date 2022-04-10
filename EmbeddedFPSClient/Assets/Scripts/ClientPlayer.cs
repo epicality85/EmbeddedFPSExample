@@ -4,7 +4,7 @@ using DarkRift;
 using UnityEngine;
 using UnityEngine.UI;
 
-struct ReconciliationInfo
+internal struct ReconciliationInfo
 {
     public ReconciliationInfo(uint frame, PlayerStateData data, PlayerInputData input)
     {
@@ -56,7 +56,7 @@ public class ClientPlayer : MonoBehaviour
     [SerializeField]
     private GameObject shotPrefab;
 
-    void Awake()
+    private void Awake()
     {
         playerLogic = GetComponent<PlayerLogic>();
         interpolation = GetComponent<PlayerInterpolation>();
@@ -84,7 +84,7 @@ public class ClientPlayer : MonoBehaviour
         healthBarFill.fillAmount = value / 100f;
     }
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         Vector3 point = Camera.main.WorldToScreenPoint(transform.position + new Vector3(0, 1, 0));
         if (point.z > 2)
@@ -97,7 +97,7 @@ public class ClientPlayer : MonoBehaviour
         }
     }
 
-    void FixedUpdate()
+    private void FixedUpdate()
     {
         if (isOwn)
         {
@@ -122,7 +122,10 @@ public class ClientPlayer : MonoBehaviour
 
             Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
 
-            PlayerInputData inputData = new PlayerInputData(inputs, rotation, GameManager.Instance.LastReceivedServerTick - 1);
+            //PlayerInputData inputData = new PlayerInputData(inputs, rotation, GameManager.Instance.LastReceivedServerTick - 1);
+            PlayerInputData inputData = new PlayerInputData(inputs, rotation,
+                GameManager.Instance.LastReceivedServerTick - 1, Vector2.zero, false, false, 
+                false, false, false);
 
             transform.position = interpolation.CurrentData.Position;
             PlayerStateData nextStateData = playerLogic.GetNextFrameData(inputData, interpolation.CurrentData);
