@@ -486,7 +486,7 @@ GameObject:
   - component: {fileID: 410648229}
   - component: {fileID: 410648228}
   m_Layer: 5
-  m_Name: InputField
+  m_Name: InputFieldUsername
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -576,6 +576,7 @@ MonoBehaviour:
   m_CaretBlinkRate: 0.85
   m_CaretWidth: 1
   m_ReadOnly: 0
+  m_ShouldActivateOnSelect: 1
 --- !u!114 &410648229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -920,17 +921,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d2b44c570cb28644b8762e0b13e7c23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  address: 127.0.0.1
+  host: 127.0.0.1
   port: 4296
-  ipVersion: 0
-  autoConnect: 0
-  invokeFromDispatcher: 1
+  noDelay: 0
+  connectOnStart: 0
+  eventsFromDispatcher: 1
   sniffData: 0
-  maxCachedWriters: 2
-  maxCachedReaders: 2
-  maxCachedMessages: 8
-  maxCachedSocketAsyncEventArgs: 32
-  maxCachedActionDispatcherTasks: 16
+  objectCacheSettings:
+    maxWriters: 2
+    maxReaders: 2
+    maxMessages: 4
+    maxMessageBuffers: 4
+    maxSocketAsyncEventArgs: 32
+    maxActionDispatcherTasks: 16
+    maxAutoRecyclingArrays: 4
+    extraSmallMemoryBlockSize: 16
+    maxExtraSmallMemoryBlocks: 2
+    smallMemoryBlockSize: 64
+    maxSmallMemoryBlocks: 2
+    mediumMemoryBlockSize: 256
+    maxMediumMemoryBlocks: 2
+    largeMemoryBlockSize: 1024
+    maxLargeMemoryBlocks: 2
+    extraLargeMemoryBlockSize: 4096
+    maxExtraLargeMemoryBlocks: 2
+    maxMessageReceivedEventArgs: 4
 --- !u!114 &1070212958
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,13 +955,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1070212955}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aafe427c4ee465d4a80321d4128fa98e, type: 3}
+  m_Script: {fileID: 11500000, guid: b0e3b225c26ecb143a33e4372b96df2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ipAdress: 127.0.0.1
   port: 4296
   loginManager: {fileID: 1825882792}
-  PlayerId: 0
 --- !u!1 &1460541580
 GameObject:
   m_ObjectHideFlags: 0
