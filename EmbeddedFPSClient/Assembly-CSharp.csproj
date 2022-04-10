@@ -69,6 +69,7 @@
      <Compile Include="Assets\Scripts\RoomListObject.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Server\XmlUnityServer.cs" />
      <Compile Include="Assets\DarkRift\DarkRift\Plugins\Server\UnityServerHelper.cs" />
+     <Compile Include="Assets\Scripts\shared\SerialisationExtensions.cs" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\Server\DarkRift.Server.xml" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\DarkRift.xml" />
      <None Include="Assets\DarkRift\DarkRift\Plugins\Client\DarkRift.Client.xml" />

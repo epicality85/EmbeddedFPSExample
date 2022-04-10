@@ -340,7 +340,9 @@ public struct PlayerInputData : IDarkRiftSerializable
         {
             Keyinputs[q] = e.Reader.ReadBoolean();
         }
-        LookDirection = new Quaternion(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
+
+        LookDirection = e.Reader.ReadQuaternionCompressed();
+        // LookDirection = new Quaternion(e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle(), e.Reader.ReadSingle());
         if (Keyinputs[5])
         {
             Time = e.Reader.ReadUInt32();
@@ -354,10 +356,11 @@ public struct PlayerInputData : IDarkRiftSerializable
         {
             e.Writer.Write(Keyinputs[q]);
         }
-        e.Writer.Write(LookDirection.x);
-        e.Writer.Write(LookDirection.y);
-        e.Writer.Write(LookDirection.z);
-        e.Writer.Write(LookDirection.w);
+        e.Writer.WriteQuaternionCompressed(LookDirection);
+        // e.Writer.Write(LookDirection.x);
+        // e.Writer.Write(LookDirection.y);
+        // e.Writer.Write(LookDirection.z);
+        // e.Writer.Write(LookDirection.w);
 
         if (Keyinputs[5])
         {
